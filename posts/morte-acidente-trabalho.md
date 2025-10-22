@@ -37,4 +37,6 @@ Preencha o formulário abaixo e **receba em 5 minutos**:
 - Modelo de petição inicial (editável)
 - Checklist de documentos
 
-[FORMULÁRIO AQUI]
+import CalculadoraMorte from '../../components/CalculadoraMorte'
+
+<CalculadoraMorte />
