@@ -1,4 +1,4 @@
-/* ===== FONTES EXATAS DO ANTIGO ===== */
+/* ===== FONTE INTER ===== */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 /* ===== VARIÁVEIS ===== */
@@ -24,19 +24,19 @@ body {
   line-height: 1.6;
 }
 
-/* ===== HEADER (EXATO DO ANTIGO) ===== */
-.header-hero {
+/* ===== HERO EXATO ===== */
+.hero {
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
   color: var(--white);
-  padding: 4rem 1rem;
+  padding: 5rem 1rem;
   text-align: center;
 }
-.header-hero h1 {
+.hero h1 {
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 1rem;
 }
-.header-hero p {
+.hero p {
   font-size: 1.25rem;
   opacity: .9;
   margin-bottom: 2rem;
@@ -54,17 +54,23 @@ body {
 }
 .cta-button:hover { transform: translateY(-2px); }
 
-/* ===== CALCULADORA (EXATA DO ANTIGO) ===== */
-.calc-card {
-  max-width: 600px;
-  margin: 3rem auto;
+/* ===== CONTAINER ===== */
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 3rem 1rem;
+}
+
+/* ===== CARD CALCULADORA ===== */
+.card {
   background: var(--white);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   padding: 2.5rem;
+  margin: 2rem 0;
 }
-.calc-card h2 { margin-bottom: 1.5rem; }
-.calc-card input {
+.card h2 { margin-bottom: 1.5rem; }
+.card input {
   width: 100%;
   padding: 1rem;
   margin: .5rem 0 1rem;
@@ -72,7 +78,7 @@ body {
   border-radius: 12px;
   font-size: 1rem;
 }
-.calc-card button {
+.card button {
   width: 100%;
   padding: 1rem;
   font-size: 1.1rem;
@@ -84,10 +90,10 @@ body {
   cursor: pointer;
   transition: background .2s;
 }
-.calc-card button:hover { background: var(--primary-dark); }
+.card button:hover { background: var(--primary-dark); }
 #res { margin-top: 1.5rem; font-weight: 600; white-space: pre-wrap; }
 
-/* ===== FOOTER (EXATO DO ANTIGO) ===== */
+/* ===== FOOTER EXATO ===== */
 footer {
   background: #1e293b;
   color: #e2e8f0;
