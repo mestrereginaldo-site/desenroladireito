@@ -2,22 +2,32 @@ import Link from 'next/link'
 
 export default function Home() {
   return (
-    <main style={{ padding: '2rem', fontFamily: 'Arial', maxWidth: 800, margin: '0 auto' }}>
-      <h1>Desenrola Direito</h1>
-      <p>Direito descomplicado para quem precisa receber.</p>
+    <>
+      <header>
+        <div className="container">
+          <h1>Desenrola Direito</h1>
+          <nav>
+            <Link href="/calculadora/morte-acidente-trabalho">Calculadoras</Link>
+            <Link href="/#modelos">Modelos</Link>
+            <Link href="/#contato">Contato</Link>
+          </nav>
+        </div>
+      </header>
 
-      <nav style={{ marginTop: '2rem' }}>
-        <h2>Ferramentas gratuitas</h2>
-        <ul>
-          <li>
-            <Link href="/calculadora/morte-acidente-trabalho">
-              <a>▶ Calculadora – Indenização por morte em acidente de trabalho</a>
-            </Link>
-          </li>
-        </ul>
-      </nav>
+      <main className="container">
+        <h2>Direito descomplicado para quem precisa receber.</h2>
+        <p>Ferramentas gratuitas, modelos de petição e passo a passo para você receber sua indenização sem drama.</p>
 
-      <p style={{ marginTop: '2rem' }}>Mais calculadoras em breve!</p>
-    </main>
+        <div style={{ marginTop: '2rem' }}>
+          <Link href="/calculadora/morte-acidente-trabalho">
+            <a className="btn">▶ Calculadora – Morte acidente de trabalho</a>
+          </Link>
+        </div>
+      </main>
+
+      <footer>
+        © 2025 Desenrola Direito – Todos os direitos reservados.
+      </footer>
+    </>
   )
 }
