@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <footer>
-      <div className="container footer-grid">
+      <div className="footer-grid">
         <div>
           <h3>Desenrola Direito</h3>
           <p>Advocacia moderna, resultados sem complicação.</p>
@@ -24,7 +24,7 @@ export default function Footer() {
         <div>
           <h4>Newsletter</h4>
           <p>Receba dicas jurídicas e novidades.</p>
-          {/* FORM TALLY AQUI DEPOIS */}
+          {/* FORMULÁRIO TALLY AQUI DEPOIS */}
         </div>
       </div>
       <div className="copy">© 2025 Desenrola Direito – Todos os direitos reservados.</div>
