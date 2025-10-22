@@ -1,31 +1,31 @@
-import Link from 'next/link'
-import CalculadoraMorte from '../components/CalculadoraMorte'
-
 export default function Home() {
   return (
     <>
-      {/* HEADER/HERO EXATO DO ANTIGO */}
-      <section className="header-hero">
+      {/* HERO EXATO DO ORIGINAL */}
+      <section className="hero">
         <h1>Desenrola Direito</h1>
         <p>Direito descomplicado para quem precisa receber.</p>
-        <Link href="#calc">
-          <a className="cta-button">Comece agora</a>
-        </Link>
+        <a href="#calc" className="cta-button">Comece agora</a>
       </section>
 
-      {/* CONTEÚDO */}
-      <main className="container">
+      {/* CONTEÚDO ORIGINAL */}
+      <div className="container">
         <h2>Ferramentas gratuitas</h2>
         <p>Calculadoras e modelos para você receber sua indenização sem drama.</p>
 
-        {/* CALCULADORA */}
-        <div id="calc" className="calc-card">
+        {/* CALCULADORA ORIGINAL */}
+        <div id="calc" className="card">
           <h2>Calculadora – Indenização por morte acidente trabalho</h2>
-          <CalculadoraMorte />
+          <label>Salário do trabalhador (R$):</label>
+          <input id="sal" type="number" placeholder="Ex: 3000" />
+          <label>Nº de dependentes:</label>
+          <input id="dep" type="number" min="0" placeholder="Ex: 2" />
+          <button onclick="calcular()">Calcular</button>
+          <pre id="res"></pre>
         </div>
-      </main>
+      </div>
 
-      {/* FOOTER */}
+      {/* FOOTER ORIGINAL */}
       <footer>
         <div className="footer-inner">
           <div>
@@ -50,11 +50,26 @@ export default function Home() {
           <div>
             <h4>Newsletter</h4>
             <p>Receba dicas jurídicas e novidades.</p>
-            {/* FORMULÁRIO TALLY AQUI DEPOIS */}
+            {/* FORMULÁRIO ORIGINAL AQUI DEPOIS */}
           </div>
         </div>
         <div className="copy">© 2025 Desenrola Direito – Todos os direitos reservados.</div>
       </footer>
+
+      {/* SCRIPT ORIGINAL DA CALCULADORA */}
+      <script dangerouslySetInnerHTML={{
+        __html: `
+          function calcular() {
+            const sal = parseFloat(document.getElementById('sal').value) || 0;
+            const dep = parseInt(document.getElementById('dep').value) || 0;
+            const moral = 50000 + (dep * 30000);
+            const mensal = (sal * 0.5) + (dep * sal * 0.1);
+            document.getElementById('res').innerText =
+              'Indenização moral total: R$ ' + moral.toLocaleString('pt-BR') + '\\n' +
+              'Pensão mensal estimada: R$ ' + mensal.toLocaleString('pt-BR');
+          }
+        `
+      }} />
     </>
   )
 }
