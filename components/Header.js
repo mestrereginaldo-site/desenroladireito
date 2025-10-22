@@ -1,8 +1,9 @@
 import Link from 'next/link'
+
 export default function Header() {
   return (
     <header>
-      <div className="container header-flex">
+      <div className="header-flex">
         <Link href="/"><a className="logo">Desenrola Direito</a></Link>
         <nav>
           <Link href="/acidente-de-trabalho"><a>Acidente de Trabalho</a></Link>
