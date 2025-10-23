@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import balanca from '/images/balanca.jfif';
 
 export function CTABlocks() {
   useEffect(() => {
@@ -28,6 +29,7 @@ export function CTABlocks() {
 
       {/* Desktop Side Card */}
       <div className="cta-side-desk">
+        <img src={balanca} alt="Justiça" className="w-full h-32 object-cover rounded mb-3" />
         <div>
           <strong>Fale com um advogado</strong>
           <br />
