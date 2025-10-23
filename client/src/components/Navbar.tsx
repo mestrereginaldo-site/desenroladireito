@@ -1,33 +1,38 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import balanca from '/images/balanca.jfif';
 
-export default function Navbar() {
-  return (
-    <nav className="bg-blue-900 text-white shadow-md">
-      <div className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
-            <img 
-              src={balanca} 
-              alt="Desenrola Direito" 
-              className="w-8 h-8 object-cover rounded-full"
-            />
-            <span className="text-xl font-bold">Desenrola Direito</span>
-          </Link>
+interface SEOHeadProps {
+  title?: string;
+  description?: string;
+  keywords?: string;
+  image?: string;
+  url?: string;
+}
 
-          {/* Links */}
-          <div className="hidden md:flex space-x-6">
-            <Link to="/" className="hover:text-blue-300 transition-colors">Home</Link>
-            <Link to="/artigos" className="hover:text-blue-300 transition-colors">Artigos</Link>
-            <Link to="/calculadoras" className="hover:text-blue-300 transition-colors">Calculadoras</Link>
-            <Link to="/consulta-paga" className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg transition-colors">
-              Consulta R$ 29,90
-            </Link>
-          </div>
-        </div>
-      </div>
-    </nav>
+export default function SEOHead({
+  title = 'Desenrola Direito - Seu direito nas suas mãos',
+  description = 'Conteúdo jurídico descomplicado para você resolver seus problemas sem sair de casa.',
+  keywords = 'direito, advogado, consulta jurídica, direito do consumidor, trabalhista, previdenciário',
+  image = balanca,
+  url = 'https://desenroladireito.com.br'
+}: SEOHeadProps) {
+  const fullTitle = `${title} | Desenrola Direito`;
+
+  return (
+    <>
+      <title>{fullTitle}</title>
+      <meta name="description" content={description} />
+      <meta name="keywords" content={keywords} />
+      <meta property="og:title" content={fullTitle} />
+      <meta property="og:description" content={description} />
+      <meta property="og:image" content={image} />
+      <meta property="og:url" content={url} />
+      <meta property="og:type" content="website" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={fullTitle} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={image} />
+      <link rel="canonical" href={url} />
+    </>
   );
 }
