@@ -1,76 +1,34 @@
-import { Link } from "wouter";
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Clock } from "lucide-react";
+import React from 'react';
+import balanca from '/images/balanca.jfif';
 
 interface ArticleCardProps {
-  id: string;
   title: string;
   excerpt: string;
-  category: string;
+  readTime: string;
   author: string;
-  authorImage?: string;
-  featuredImage?: string;
-  readingTime: number;
-  published: string;
-  slug: string;
+  date: string;
 }
 
-export function ArticleCard({
-  title,
-  excerpt,
-  category,
-  author,
-  authorImage,
-  featuredImage,
-  readingTime,
-  published,
-  slug,
-  id,
-}: ArticleCardProps) {
+export default function ArticleCard({ title, excerpt, readTime, author, date }: ArticleCardProps) {
   return (
-    <Card className="overflow-hidden hover-elevate transition-all" data-testid={`card-article-${id}`}>
-      <Link href={`/artigo/${slug}`}>
-        <a>
-          {featuredImage && (
-            <div className="aspect-video overflow-hidden">
-              <img
-                src={featuredImage}
-                alt={title}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          )}
-          <CardHeader className="gap-2">
-            <Badge className="w-fit" data-testid={`badge-category-${category}`}>
-              {category}
-            </Badge>
-            <h3 className="font-serif text-xl font-semibold leading-tight line-clamp-2">
-              {title}
-            </h3>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground text-sm line-clamp-3">{excerpt}</p>
-          </CardContent>
-          <CardFooter className="flex items-center justify-between gap-4">
-            <div className="flex items-center gap-2">
-              <Avatar className="h-8 w-8">
-                <AvatarImage src={authorImage} />
-                <AvatarFallback>{author.slice(0, 2).toUpperCase()}</AvatarFallback>
-              </Avatar>
-              <div className="flex flex-col">
-                <span className="text-sm font-medium">{author}</span>
-                <span className="text-xs text-muted-foreground">{published}</span>
-              </div>
-            </div>
-            <div className="flex items-center gap-1 text-muted-foreground">
-              <Clock className="h-4 w-4" />
-              <span className="text-xs">{readingTime} min</span>
-            </div>
-          </CardFooter>
-        </a>
-      </Link>
-    </Card>
+    <article className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+      <img 
+        src={balanca} 
+        alt={title} 
+        className="w-full h-48 object-cover"
+      />
+      <div className="p-6">
+        <h3 className="text-xl font-semibold mb-2 text-gray-800">{title}</h3>
+        <p className="text-gray-600 mb-4 line-clamp-3">{excerpt}</p>
+        <div className="flex justify-between items-center text-sm text-gray-500">
+          <span>{author}</span>
+          <span>{date}</span>
+        </div>
+        <div className="flex justify-between items-center mt-4">
+          <span className="text-blue-600 font-medium">{readTime}</span>
+          <button className="text-blue-600 font-medium hover:text-blue-800">Ler mais →</button>
+        </div>
+      </div>
+    </article>
   );
 }
