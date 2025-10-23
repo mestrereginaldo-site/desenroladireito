@@ -1,119 +1,71 @@
-import { Link } from "wouter";
-import { FaBalanceScale, FaFacebookF, FaInstagram, FaYoutube, FaLinkedinIn, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import React from 'react';
+import balanca from '/images/balanca.jfif';
 
-const categories = [
-  { name: "Direito do Consumidor", slug: "consumidor" },
-  { name: "Direito Trabalhista", slug: "trabalhista" },
-  { name: "Direito Civil", slug: "civil" },
-  { name: "Direito Constitucional", slug: "constitucional" },
-];
+export default function Footer() {
+  const currentYear = new Date().getFullYear();
 
-export function Footer() {
   return (
-    <footer className="bg-primary text-white">
-      <div className="container mx-auto px-4 py-12">
+    <footer className="bg-gray-900 text-white py-12">
+      <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div>
-            <h4 className="font-bold text-xl mb-4 flex items-center">
-              <FaBalanceScale className="mr-2" />
-              Desenrola Direito
-            </h4>
-            <p className="text-gray-300 mb-6">
-              Simplificando o Direito para todos. Informação jurídica clara, acessível e prática.
+          {/* Logo e Descrição */}
+          <div className="md:col-span-2">
+            <div className="flex items-center mb-4">
+              <img 
+                src={balanca} 
+                alt="Desenrola Direito" 
+                className="w-12 h-12 object-cover rounded mr-3"
+              />
+              <h3 className="text-2xl font-bold">Desenrola Direito</h3>
+            </div>
+            <p className="text-gray-300 mb-4">
+              Seu direito nas suas mãos. Conteúdo jurídico descomplicado para você resolver seus problemas sem sair de casa.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-white hover:text-gray-300 transition" data-testid="link-facebook">
-                <FaFacebookF className="text-lg" />
+              <a href="#" className="text-gray-300 hover:text-white transition-colors">
+                <span className="sr-only">WhatsApp</span>
+                💬
               </a>
-              <a href="#" className="text-white hover:text-gray-300 transition" data-testid="link-instagram">
-                <FaInstagram className="text-lg" />
+              <a href="#" className="text-gray-300 hover:text-white transition-colors">
+                <span className="sr-only">Instagram</span>
+                📷
               </a>
-              <a href="#" className="text-white hover:text-gray-300 transition" data-testid="link-youtube">
-                <FaYoutube className="text-lg" />
-              </a>
-              <a href="#" className="text-white hover:text-gray-300 transition" data-testid="link-linkedin">
-                <FaLinkedinIn className="text-lg" />
+              <a href="#" className="text-gray-300 hover:text-white transition-colors">
+                <span className="sr-only">YouTube</span>
+                📺
               </a>
             </div>
           </div>
 
+          {/* Links Rápidos */}
           <div>
-            <h5 className="font-bold mb-4">Categorias</h5>
-            <ul className="space-y-3">
-              {categories.map((category) => (
-                <li key={category.slug}>
-                  <Link 
-                    href={`/categoria/${category.slug}`} 
-                    className="text-gray-300 hover:text-white transition"
-                    data-testid={`link-category-${category.slug}`}
-                  >
-                    {category.name}
-                  </Link>
-                </li>
-              ))}
+            <h4 className="text-lg font-semibold mb-4">Links Rápidos</h4>
+            <ul className="space-y-2">
+              <li><a href="/" className="text-gray-300 hover:text-white transition-colors">Home</a></li>
+              <li><a href="/artigos" className="text-gray-300 hover:text-white transition-colors">Artigos</a></li>
+              <li><a href="/calculadoras" className="text-gray-300 hover:text-white transition-colors">Calculadoras</a></li>
+              <li><a href="/consulta-paga" className="text-gray-300 hover:text-white transition-colors">Consulta Rápida</a></li>
             </ul>
           </div>
 
+          {/* Categorias */}
           <div>
-            <h5 className="font-bold mb-4">Links Úteis</h5>
-            <ul className="space-y-3">
-              <li>
-                <Link href="/sobre" className="text-gray-300 hover:text-white transition">
-                  Sobre Nós
-                </Link>
-              </li>
-              <li>
-                <Link href="/privacidade" className="text-gray-300 hover:text-white transition">
-                  Política de Privacidade
-                </Link>
-              </li>
-              <li>
-                <Link href="/termos" className="text-gray-300 hover:text-white transition">
-                  Termos de Uso
-                </Link>
-              </li>
-              <li>
-                <Link href="/contato" className="text-gray-300 hover:text-white transition">
-                  Contato
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h5 className="font-bold mb-4">Contato</h5>
-            <ul className="space-y-3">
-              <li className="flex items-start">
-                <FaMapMarkerAlt className="mt-1 mr-3 text-gray-300" />
-                <span className="text-gray-300">
-                  Av. Marechal Deodoro da Fonseca, 1188 - Centro - Jaraguá do Sul - SC - CEP: 89.251-702
-                </span>
-              </li>
-              <li className="flex items-center">
-                <FaPhoneAlt className="mr-3 text-gray-300" />
-                <span className="text-gray-300">(71) 98648-2241</span>
-              </li>
-              <li className="flex items-center">
-                <FaEnvelope className="mr-3 text-gray-300" />
-                <span className="text-gray-300">contato@desenroladireito.com.br</span>
-              </li>
+            <h4 className="text-lg font-semibold mb-4">Categorias</h4>
+            <ul className="space-y-2">
+              <li><a href="/categoria/trabalhista" className="text-gray-300 hover:text-white transition-colors">Direito Trabalhista</a></li>
+              <li><a href="/categoria/consumidor" className="text-gray-300 hover:text-white transition-colors">Direito do Consumidor</a></li>
+              <li><a href="/categoria/previdenciario" className="text-gray-300 hover:text-white transition-colors">Previdenciário</a></li>
+              <li><a href="/categoria/civil" className="text-gray-300 hover:text-white transition-colors">Direito Civil</a></li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400 text-sm">
-          <p className="mb-2">&copy; {new Date().getFullYear()} Desenrola Direito. Todos os direitos reservados.</p>
-          <div className="flex justify-center space-x-4">
-            <Link href="/privacidade" className="text-gray-300 hover:text-white transition">
-              Política de Privacidade
-            </Link>
-            <span>•</span>
-            <Link href="/termos" className="text-gray-300 hover:text-white transition">
-              Termos de Uso
-            </Link>
-          </div>
-          <p className="mt-4 text-xs">
-            Este site pode incluir anúncios personalizados do Google AdSense. <Link href="/privacidade" className="underline hover:text-white">Saiba mais</Link>.
+        {/* Copyright */}
+        <div className="border-t border-gray-800 mt-8 pt-8 text-center">
+          <p className="text-gray-300">
+            © {currentYear} Desenrola Direito. Todos os direitos reservados. |
+            <a href="/privacidade" className="hover:text-white transition-colors"> Política de Privacidade</a> |
+            <a href="/termos" className="hover:text-white transition-colors"> Termos de Uso</a>
           </p>
         </div>
       </div>
